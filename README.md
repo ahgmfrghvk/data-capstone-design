@@ -50,6 +50,24 @@ https://github.com/vasantvohra/TrashNet
 
 #### 3.1.1. LeNet5 training
 
+- Batch size : 32
+- Learning rate : 0.005
+- Batch normalization
+- Weight initializer : he_normal
+- Accuracy : 0.6690
+
+![image](https://user-images.githubusercontent.com/80897270/123391511-11e77b00-d5d7-11eb-9568-ee4d695546c3.png)
+********************************************
+- Batch size : 32
+- Learning rate : 0.005
+- Drop out : 0.3
+- Batch normalization
+- Weight initializer : he_normal
+- Accuracy : 0.6790
+
+![image](https://user-images.githubusercontent.com/80897270/123391525-16ac2f00-d5d7-11eb-89c4-8c3b7da966e2.png)
+
+
 ### 3.2. AlexNet
 ![image](https://user-images.githubusercontent.com/80897270/123389104-80770980-d5d4-11eb-9dc9-fb89f7bd0c4c.png)    
 
@@ -59,6 +77,41 @@ https://github.com/vasantvohra/TrashNet
 ![image](https://user-images.githubusercontent.com/80897270/123389278-ae5c4e00-d5d4-11eb-839a-fc8bd6f205b6.png)
 
 #### 3.2.1 AlexNet training
+- Batch size : 32
+- Learning rate : 0.001
+- Batch normalization
+- Horizontal flip
+- Accuracy : 0.8127
+
+![image](https://user-images.githubusercontent.com/80897270/123391918-786c9900-d5d7-11eb-8858-16bf14b2c074.png)
+********************************************
+- Batch size : 32
+- Learning rate : 0.001
+- Batch normalization
+- L2 normalization
+- Horizontal flip
+- Accuracy : 0.8136
+
+![image](https://user-images.githubusercontent.com/80897270/123391939-7efb1080-d5d7-11eb-90b5-ef127a589075.png)
+********************************************
+- Batch size : 32
+- Learning rate : 0.001
+- Batch normalization
+- Drop out : 0.3
+- Horizontal flip
+- Accuracy : 0.8114
+
+![image](https://user-images.githubusercontent.com/80897270/123391991-89b5a580-d5d7-11eb-8fb6-75da6ff8135c.png)
+********************************************
+- Batch size : 32
+- Learning rate : 0.01
+- Batch normalization
+- Drop out : 0.3
+- Horizontal flip
+- Accuracy : 0.8302
+
+![image](https://user-images.githubusercontent.com/80897270/123392011-8de1c300-d5d7-11eb-8a0b-768ed0569013.png)
+
 
 ### 3.3. VGG 16
 ![image](https://user-images.githubusercontent.com/80897270/123389340-bf0cc400-d5d4-11eb-868d-10b8bd5896ba.png)    
@@ -70,6 +123,48 @@ https://github.com/vasantvohra/TrashNet
 ![image](https://user-images.githubusercontent.com/80897270/123389599-01360580-d5d5-11eb-9c88-3aff09638f44.png)
 
 #### 3.3.1. VGG 16 training
+
+- Batch size : 32
+- Learning rate : 0.01
+- Batch normalization
+- Drop out : 0.3
+- Horizontal flip
+- Accuracy : 0.8494
+
+![image](https://user-images.githubusercontent.com/80897270/123392863-7eaf4500-d5d8-11eb-856e-055a98aceada.png)
+
+********************************************
+
+- Batch size : 64
+- Learning rate : 0.01
+- Batch normalization
+- Drop out : 0.3
+- Horizontal flip, width, height shift
+- Accuracy : 0.8149
+
+![image](https://user-images.githubusercontent.com/80897270/123392879-82db6280-d5d8-11eb-92ba-80ca0683a086.png)
+
+********************************************
+- Batch size : 16
+- Learning rate : 0.005
+- Batch normalization
+- Drop out : 0.5
+- Horizontal flip, width, height shift
+- Weight Initialization : he_normal
+- Accuracy : 0.8370
+
+![image](https://user-images.githubusercontent.com/80897270/123392911-8c64ca80-d5d8-11eb-9140-8658d15c9196.png)
+
+********************************************
+- Batch size : 16
+- Learning rate : 0.005
+- Batch normalization
+- Drop out : 0.3
+- Horizontal flip, width, height shift, rotation, zoom
+- Accuracy : 0.8665
+
+![image](https://user-images.githubusercontent.com/80897270/123392934-925aab80-d5d8-11eb-806a-01507278dd93.png)
+
 
 ### 3.4. Inception v3
 ![image](https://user-images.githubusercontent.com/80897270/123389874-4b1eeb80-d5d5-11eb-85a2-85266e243d13.png)
@@ -85,8 +180,52 @@ https://github.com/vasantvohra/TrashNet
 ![image](https://user-images.githubusercontent.com/80897270/123390633-13647380-d5d6-11eb-9d19-3eaca786c569.png)
 
 #### 3.4.1. Inception v3 training
+- Batch size : 32
+- Learning rate : 0.001
+- Batch normalization
+- Drop out : 0.5
+- Horizontal flip, width, height shift
+- RMSprop
+- Accuracy : 0.8370
+
+![image](https://user-images.githubusercontent.com/80897270/123393375-fe3d1400-d5d8-11eb-9258-155cfeaf150d.png)
+
+********************************************
+- Batch size : 32
+- Learning rate : 0.01
+- Batch normalization
+- Drop out : 0.5
+- Horizontal flip, width, height shift
+- SGD
+- Accuracy : 0.8411
 
 
+![image](https://user-images.githubusercontent.com/80897270/123393385-009f6e00-d5d9-11eb-91ea-2b7be33662fb.png)
+
+********************************************
+- Batch size : 16
+- Learning rate : 0.005
+- Batch normalization
+- Drop out : 0.5
+- Horizontal flip, width, height shift
+- SGD
+- Weight initializer : he_normal 
+- Accuracy : 0.8654
+
+
+![image](https://user-images.githubusercontent.com/80897270/123393393-039a5e80-d5d9-11eb-958a-304e23e1badf.png)
+
+********************************************
+- Batch size : 16
+- Learning rate : 0.005
+- Batch normalization
+- Drop out : 0.5
+- Horizontal flip, width, height shift, rotation, zoom
+- SGD
+- Weight initializer : he_normal
+- Accuracy : 0.8558
+
+![image](https://user-images.githubusercontent.com/80897270/123393399-05fcb880-d5d9-11eb-9ec2-025a4817f6e7.png)
 
 ## 4. Results
 |모델|batch|learning rate|batch normalization|Drop out|augmentation|weight initializer|기타|accuracy|
