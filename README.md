@@ -174,6 +174,7 @@ https://github.com/vasantvohra/TrashNet
 - 이전 구조보다 깊은 구조를 갖고 있기에 수평,수직이동, 확대, 회전과 같은 data augmentation 추가 적용.
 - batch size를 작게 했을 시 두드러지는 accuracy 향상을 보임
 - 추가적인 data augmentation으로 accuracy 향상 
+- VGG 16에서 가장 높은 accuracy는 0.8665
 
 ### 3.4. Inception v3
 ![image](https://user-images.githubusercontent.com/80897270/123389874-4b1eeb80-d5d5-11eb-85a2-85266e243d13.png)
@@ -241,6 +242,7 @@ https://github.com/vasantvohra/TrashNet
 - 기존 논문에서는 optimizer로 RMSprop를 사용하여 이전 최신 gradient 값에 비중을 두어 학습률을 변화시켜가며 학습시키도록 했지만, 재활용품 분류에서는 학습곡선의 변동 폭이 크며 성능 향상의 어려움을 겪어 SGD로 학습시켰다.
 - VGG 16에서와 마찬가지로 batch size를 줄였을 때, 눈에 띄는 accuracy 향상 보임.
 - 그러나, rotation과 zoom의 augmentation을 적용했을 때, 오히려 accuracy가 떨어진 결과 도출.
+- Inception v3에서 가장 높은 accuracy는 0.8654
 
 ## 4. Results
 |모델|batch|learning rate|batch normalization|Drop out|augmentation|weight initializer|기타|accuracy|
