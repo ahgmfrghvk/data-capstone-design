@@ -1,4 +1,4 @@
-2021 data analysis-capstone-design
+2021 Data analysis-capstone-design
 ==================================
 CNN을 활용한 재활용품 분류
 ---------------------------
@@ -16,8 +16,8 @@ CNN을 활용한 재활용품 분류
 - 이전에 진행되었던 쓰레기 분류 모델의 validation accuracy는 80%를 넘지 못했다. 따라서 이보다 개선된 더 높은 accuracy를 갖는 모델을 학습시키는 것을 목표로 한다.
 https://github.com/vasantvohra/TrashNet
 
-## 2. dataset
-### 2.1. data 수집
+## 2. Dataset
+### 2.1. Data 수집
 직접 이미지를 수집한 것이 아닌 기존에 미리 수집되었던 이미지를 활용하였다. 총 21202개의 이미지를 수집할 수 있었다.
 |class|training set|validation set|test set|total
 |------|---|---|---|---|
@@ -29,7 +29,7 @@ https://github.com/vasantvohra/TrashNet
     
 수집 이미지 출처 : https://github.com/AgaMiko/waste-datasets-review
 
-### 2.2. data 전처리
+### 2.2. Data 전처리
 - 효과적으로 학습시키기위해 이미지의 픽셀별 RGB값을 255로 나눠 0~1사이의 값으로 scaling 해주었다.
 - 모델별로 필요에 따라서 horizontal_flip과 같은 data augmentation을 진행하였다.
 - 모델에 따라 input size(target_size)가 다르기 때문에 그에 맞춰 이미지를 resize할 수 있도록 하였다. 
@@ -37,7 +37,7 @@ https://github.com/vasantvohra/TrashNet
 ![image](https://user-images.githubusercontent.com/80897270/123382489-f6777280-d5cc-11eb-9c9a-edafe3be35f2.png)
 
 
-## 3. models
+## 3. Models
 - 많이 알려져 있는 CNN모델 구조를 사용하도록 하며, 점점 복잡한 구조를 이용하여 학습시켜 보았다.
 ### 3.1. LeNet5
 
@@ -46,10 +46,44 @@ https://github.com/vasantvohra/TrashNet
 - CNN개념이 최초로 적용된 모델
 - 3개의 convolution layer, 2개의 sub-sampling layer, 1개의 fully connected layer를 갖는다.
 - 훈련시킬 파라미터 수는 약 6만개로 다른 CNN 모델들의 비해 파라미터 수가 적다.
+![image](https://user-images.githubusercontent.com/80897270/123383974-ca5cf100-d5ce-11eb-8de7-2979e44c9660.png)
+
+### 3.1.1. LeNet5 training
+
 ### 3.2. AlexNet
 ### 3.3. VGG 16
 ### 3.4. Inception v3
 
-## 4. results
+## 4. Results
+|모델|batch|learning rate|batch normalization|Drop out|augmentation|weight initializer|기타|accuracy|
+|------|---|---|---|---|---|---|---|---|
+|LeNet|32|0.005|O|X|X|random|SGD|0.6690|
+|LeNet|32|0.005|O|0.3|X|He_normal|SGD|0.6790|
+|AlexNet|32|0.001|O|X|Hf|random|SGD|0.8127|
+|AlexNet|32|0.001|O|X|Hf|random|L2, SGD|0.8136|
+|AlexNet|32|0.001|O|0.3|Hf|random|SGD|0.8114|
+|AlexNet|32|0.01|O|0.3|Hf|random|SGD|0.8302|
+|VGG 16|32|0.01|O|0.3|Hf|random|SGD|0.8494|
+|VGG 16|64|0.01|O|0.3|Hf, wh|random|SGD|0.8149|
+|VGG 16|16|0.005|O|0.5|Hf, wh|He_normal|SGD|0.8370|
+|**VGG 16**|**16**|**0.005**|**O**|**0.3**|**Hf, wh, rz**|**random**|**SGD**|**0.8665**|
+|Inception|32|0.001|O|0.5|Hf, wh|random|RMSprop|0.8370|
+|Inception|32|0.01|O|0.5|Hf, wh|random|SGD|0.8411|
+|Inception|16|0.005|O|0.5|Hf, wh|He_normal|SGD|0.8654|
+|Inception|16|0.005|O|0.5|Hf, wh, rz|He_normal|SGD|0.8558|
 
-## 5. conclusion
+- 굵은 글씨로 표시된 VGG 16에서 0.8665로 가장 높은 accuracy 달성
+- 학습된 해당 모델로 최종적으로 test set에 대하여 성능을 검증해 보았다.
+- 0.8224를 달성하였다.
+
+## 5. Conclusion
+### 5.1. 결론 및 제언
+- 이론으로만 학습했던 모델들을 직접구현함으로써 모델에 대한 이해도를 높일 수 있었다.
+- 모델별로 성능을 향상시키기 위한 여러 기법들이 동일하게 성능을 개선시키는 것이 아니라 모델에 따라서 개선의 정도가 상이했다.
+- 설령 같은 모델이라 할지라도 어떤 hyper parameter로 학습시켰는지에 따라서도 성능이 개선되는 모델이 있는 가 하면 오히려 악영향을 미친 경우도 있었다.
+- 딥러닝에서는 만병통치약 같이 어떤 모델이나 어떠한 domain에서도 공통되어 성능을 개선시키는 기법이 있는 것이 아니라 본인의 data와 여러 hyper parameter에 따라 성능이 천차만별이 되기때문에 본인의 상황에 맞게 다양한 기법과 hyper parameter를 수정해 학습시켜가며, 최적의 성능을 얻도록 하는 것이 바람직함을 다시금 느낄수 있었다.
+### 5.2. 활용 방안
+- 이미지를 통해서만 쓰레기를 분류하는데 한계가 존재한다고 생각한다. 그러므로 이미지 뿐만아니라 무게, 재활용마크 등 다른 부가적인 요소도 참고하여 분류해 낼수 있도록 한다면 더욱 높은 정확도로 분류해 낼수 있을 것이다. 
+- 더욱 품질 높은 재활용 원료를 추출하기 위해선 정확한 분리 배출뿐만 아니라 올바르게 배출하는 것도 중요하다. 이를 테면 페트병의 라벨을 제거하여 버려야 하거나 안에 내용물을 비우고 배출해야 한다. 따라서 수거된 쓰레기를 분류하는 것 뿐만 아니라 잘못된 방법으로 배출된 쓰레기를 검출해내거나 올바르게 배출될 수 있도록 하는 시스템이 필요하다.
+
+
