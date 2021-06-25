@@ -172,8 +172,8 @@ https://github.com/vasantvohra/TrashNet
 ![image](https://user-images.githubusercontent.com/80897270/123392934-925aab80-d5d8-11eb-806a-01507278dd93.png)
 ********************************************
 - 이전 구조보다 깊은 구조를 갖고 있기에 수평,수직이동, 확대, 회전과 같은 data augmentation 추가 적용.
-- batch size를 작게 했을 시 두드러지는 accuracy 향상을 보임
-- 추가적인 data augmentation으로 accuracy 향상 
+- batch size를 작게 했을 시 두드러지는 accuracy 향상 보임
+- 추가적인 data augmentation으로 accuracy 향상 보임
 - VGG 16에서 가장 높은 accuracy는 0.8665
 
 ### 3.4. Inception v3
