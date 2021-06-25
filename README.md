@@ -57,6 +57,7 @@ https://github.com/vasantvohra/TrashNet
 - Accuracy : 0.6690
 
 ![image](https://user-images.githubusercontent.com/80897270/123391511-11e77b00-d5d7-11eb-9568-ee4d695546c3.png)
+
 ********************************************
 - Batch size : 32
 - Learning rate : 0.005
@@ -66,7 +67,9 @@ https://github.com/vasantvohra/TrashNet
 - Accuracy : 0.6790
 
 ![image](https://user-images.githubusercontent.com/80897270/123391525-16ac2f00-d5d7-11eb-89c4-8c3b7da966e2.png)
-
+********************************************
+- drop out을 통해서 accuracy를 향상시킬 수 있었지만, 학습곡선의 변동폭이 커졌음
+- LeNet에서 가장 높은 accuracy는 0.6790
 
 ### 3.2. AlexNet
 ![image](https://user-images.githubusercontent.com/80897270/123389104-80770980-d5d4-11eb-9dc9-fb89f7bd0c4c.png)    
@@ -111,7 +114,10 @@ https://github.com/vasantvohra/TrashNet
 - Accuracy : 0.8302
 
 ![image](https://user-images.githubusercontent.com/80897270/123392011-8de1c300-d5d7-11eb-8a0b-768ed0569013.png)
-
+********************************************
+- L2 normalization을 사용하였을 때, 학습곡선이 부드러운 형태를 띄긴했지만, dramatic한 성능 개선이 있진 않았으며, L2 normalization 사용 시 오히려 accuracy가 떨어지는 경향을 보임.
+- data augmentation을 사용하기 시작했으며, 단순하게 좌우반전 시키는 horizontal flip만 적용
+- AlexNet에서 가장 높은 accuracy는 0.8302
 
 ### 3.3. VGG 16
 ![image](https://user-images.githubusercontent.com/80897270/123389340-bf0cc400-d5d4-11eb-868d-10b8bd5896ba.png)    
@@ -164,7 +170,10 @@ https://github.com/vasantvohra/TrashNet
 - Accuracy : 0.8665
 
 ![image](https://user-images.githubusercontent.com/80897270/123392934-925aab80-d5d8-11eb-806a-01507278dd93.png)
-
+********************************************
+- 이전 구조보다 깊은 구조를 갖고 있기에 수평,수직이동, 확대, 회전과 같은 data augmentation 추가 적용.
+- batch size를 작게 했을 시 두드러지는 accuracy 향상을 보임
+- 추가적인 data augmentation으로 accuracy 향상 
 
 ### 3.4. Inception v3
 ![image](https://user-images.githubusercontent.com/80897270/123389874-4b1eeb80-d5d5-11eb-85a2-85266e243d13.png)
@@ -226,6 +235,12 @@ https://github.com/vasantvohra/TrashNet
 - Accuracy : 0.8558
 
 ![image](https://user-images.githubusercontent.com/80897270/123393399-05fcb880-d5d9-11eb-9ec2-025a4817f6e7.png)
+
+********************************************
+
+- 기존 논문에서는 optimizer로 RMSprop를 사용하여 이전 최신 gradient 값에 비중을 두어 학습률을 변화시켜가며 학습시키도록 했지만, 재활용품 분류에서는 학습곡선의 변동 폭이 크며 성능 향상의 어려움을 겪어 SGD로 학습시켰다.
+- VGG 16에서와 마찬가지로 batch size를 줄였을 때, 눈에 띄는 accuracy 향상 보임.
+- 그러나, rotation과 zoom의 augmentation을 적용했을 때, 오히려 accuracy가 떨어진 결과 도출.
 
 ## 4. Results
 |모델|batch|learning rate|batch normalization|Drop out|augmentation|weight initializer|기타|accuracy|
