@@ -268,6 +268,14 @@ https://github.com/vasantvohra/TrashNet
 - 깊은 구조로 갈수록 대체적으로 accuracy가 향상하는 것을 확인할 수 있었다.
 - 모델별로 사용했을 때 효과적인 기법들이 상이했고, 오히려 성능을 떨어트리는 기법이 존재했다.
 - 이를 테면 inception에 경우 동일한 hyper parameter임에도 불구하고 data augmentation으로 rotation과 zoom을 추가했을 때 오히려 성능이 떨어짐을 확인할 수 있었다.
+### 4.1. 실제 데이터 적용
+
+- 실제로 찍은 사진을 분류 모델에 적용하여 분류해 낼 수 있는지 확인.
+- 콜라 페트병을 plastic으로 분류해 냄을 확인함.    
+ 
+
+![시행](https://user-images.githubusercontent.com/80897270/123442576-f9e01d80-d60f-11eb-8fc3-4c80896a1822.PNG)
+
 
 ## 5. Conclusion
 ### 5.1. 결론 및 제언
