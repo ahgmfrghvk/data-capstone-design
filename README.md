@@ -44,15 +44,49 @@ https://github.com/vasantvohra/TrashNet
 ![image](https://user-images.githubusercontent.com/80897270/123383723-78b46680-d5ce-11eb-9bc9-57eb75f90696.png)
 
 - CNN개념이 최초로 적용된 모델
-- 3개의 convolution layer, 2개의 sub-sampling layer, 1개의 fully connected layer를 갖는다.
+- 3개의 convolution layer, 2개의 sub-sampling layer, 1개의 fully connected layer로 구성
 - 훈련시킬 파라미터 수는 약 6만개로 다른 CNN 모델들의 비해 파라미터 수가 적다.
 ![image](https://user-images.githubusercontent.com/80897270/123383974-ca5cf100-d5ce-11eb-8de7-2979e44c9660.png)
 
 ### 3.1.1. LeNet5 training
 
 ### 3.2. AlexNet
+![image](https://user-images.githubusercontent.com/80897270/123389104-80770980-d5d4-11eb-9dc9-fb89f7bd0c4c.png)    
+
+- 5개의 convolution layers, 3개의 fully-connected layers로 구성
+- 11x11, 5x5, 3x3의 filter를 사용    
+
+![image](https://user-images.githubusercontent.com/80897270/123389278-ae5c4e00-d5d4-11eb-839a-fc8bd6f205b6.png)
+
+### 3.2.1 AlexNet training
+
 ### 3.3. VGG 16
+![image](https://user-images.githubusercontent.com/80897270/123389340-bf0cc400-d5d4-11eb-868d-10b8bd5896ba.png)    
+
+- 13개의 convolution layers, 3개의 fully connected layers로 구성
+- 3x3 filter만을 사용하여 깊지만 단순한 구조를 갖음    
+
+![image](https://user-images.githubusercontent.com/80897270/123389582-fda27e80-d5d4-11eb-87f4-5109b95bb2fc.png)
+![image](https://user-images.githubusercontent.com/80897270/123389599-01360580-d5d5-11eb-9c88-3aff09638f44.png)
+
+### 3.3.1. VGG 16 training
+
 ### 3.4. Inception v3
+![image](https://user-images.githubusercontent.com/80897270/123389874-4b1eeb80-d5d5-11eb-85a2-85266e243d13.png)
+
+- 작은 filter를 사용하여 깊으면서도 계산량을 줄일 수 있도록 함
+- NxN filter만 사용하는 것이 아닌 Nx1 과 같은 asymmetric filter 사용    
+![image](https://user-images.githubusercontent.com/80897270/123390561-00ea3a00-d5d6-11eb-9a53-20b082d1b87b.png)
+![image](https://user-images.githubusercontent.com/80897270/123390576-06478480-d5d6-11eb-9703-a566573ec82f.png)
+![image](https://user-images.githubusercontent.com/80897270/123390591-0a73a200-d5d6-11eb-8c5b-383edf8fbbb0.png) 
+
+- 보조 분류기를 사용하여 성능 개선
+- pooling layer로 grid size를 줄이는 것 대신 representational bottleneck을 줄이면서 계산 비용은 비교적 저렴하도록 하는 구조 사용    
+![image](https://user-images.githubusercontent.com/80897270/123390633-13647380-d5d6-11eb-9d19-3eaca786c569.png)
+
+### 3.4.1. Inception v3 training
+
+
 
 ## 4. Results
 |모델|batch|learning rate|batch normalization|Drop out|augmentation|weight initializer|기타|accuracy|
@@ -75,6 +109,9 @@ https://github.com/vasantvohra/TrashNet
 - 굵은 글씨로 표시된 VGG 16에서 0.8665로 가장 높은 accuracy 달성
 - 학습된 해당 모델로 최종적으로 test set에 대하여 성능을 검증해 보았다.
 - 0.8224를 달성하였다.
+- 깊은 구조로 갈수록 대체적으로 accuracy가 향상하는 것을 확인할 수 있었다.
+- 모델별로 사용했을 때 효과적인 기법들이 상이했고, 오히려 성능을 떨어트리는 기법이 존재했다.
+- 이를 테면 inception에 경우 동일한 hyper parameter임에도 불구하고 data augmentation으로 rotation과 zoom을 추가했을 때 오히려 성능이 떨어짐을 확인할 수 있었다.
 
 ## 5. Conclusion
 ### 5.1. 결론 및 제언
@@ -85,5 +122,3 @@ https://github.com/vasantvohra/TrashNet
 ### 5.2. 활용 방안
 - 이미지를 통해서만 쓰레기를 분류하는데 한계가 존재한다고 생각한다. 그러므로 이미지 뿐만아니라 무게, 재활용마크 등 다른 부가적인 요소도 참고하여 분류해 낼수 있도록 한다면 더욱 높은 정확도로 분류해 낼수 있을 것이다. 
 - 더욱 품질 높은 재활용 원료를 추출하기 위해선 정확한 분리 배출뿐만 아니라 올바르게 배출하는 것도 중요하다. 이를 테면 페트병의 라벨을 제거하여 버려야 하거나 안에 내용물을 비우고 배출해야 한다. 따라서 수거된 쓰레기를 분류하는 것 뿐만 아니라 잘못된 방법으로 배출된 쓰레기를 검출해내거나 올바르게 배출될 수 있도록 하는 시스템이 필요하다.
-
-
