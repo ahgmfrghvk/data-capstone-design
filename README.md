@@ -2,7 +2,7 @@
 ==================================
 CNN을 활용한 재활용품 분류
 ---------------------------
-산업경영공학과 김태성
+산업경영공학과 18학번 김태성
 ## 1. 개요
 ### 1.1. 과제 선정 배경
 - 최근 코로나로 인한 온라인 주문과 배달량 증가로 배출되는 쓰레기의 양이 증가되면서 기존에도 문제가 심각했던 쓰레기 대란 문제가 더욱 고조화 되었다. 이를 해결하는데 매립지와 소각시설과 같은 쓰레기 처리시설을 증설하는 것도 하나의 방법이지만 환경적, 경제적, 시간적 문제 등 다양한 제약이 존재한다. 
@@ -48,7 +48,7 @@ https://github.com/vasantvohra/TrashNet
 - 훈련시킬 파라미터 수는 약 6만개로 다른 CNN 모델들의 비해 파라미터 수가 적다.
 ![image](https://user-images.githubusercontent.com/80897270/123383974-ca5cf100-d5ce-11eb-8de7-2979e44c9660.png)
 
-### 3.1.1. LeNet5 training
+#### 3.1.1. LeNet5 training
 
 ### 3.2. AlexNet
 ![image](https://user-images.githubusercontent.com/80897270/123389104-80770980-d5d4-11eb-9dc9-fb89f7bd0c4c.png)    
@@ -58,7 +58,7 @@ https://github.com/vasantvohra/TrashNet
 
 ![image](https://user-images.githubusercontent.com/80897270/123389278-ae5c4e00-d5d4-11eb-839a-fc8bd6f205b6.png)
 
-### 3.2.1 AlexNet training
+#### 3.2.1 AlexNet training
 
 ### 3.3. VGG 16
 ![image](https://user-images.githubusercontent.com/80897270/123389340-bf0cc400-d5d4-11eb-868d-10b8bd5896ba.png)    
@@ -69,7 +69,7 @@ https://github.com/vasantvohra/TrashNet
 ![image](https://user-images.githubusercontent.com/80897270/123389582-fda27e80-d5d4-11eb-87f4-5109b95bb2fc.png)
 ![image](https://user-images.githubusercontent.com/80897270/123389599-01360580-d5d5-11eb-9c88-3aff09638f44.png)
 
-### 3.3.1. VGG 16 training
+#### 3.3.1. VGG 16 training
 
 ### 3.4. Inception v3
 ![image](https://user-images.githubusercontent.com/80897270/123389874-4b1eeb80-d5d5-11eb-85a2-85266e243d13.png)
@@ -84,7 +84,7 @@ https://github.com/vasantvohra/TrashNet
 - pooling layer로 grid size를 줄이는 것 대신 representational bottleneck을 줄이면서 계산 비용은 비교적 저렴하도록 하는 구조 사용    
 ![image](https://user-images.githubusercontent.com/80897270/123390633-13647380-d5d6-11eb-9d19-3eaca786c569.png)
 
-### 3.4.1. Inception v3 training
+#### 3.4.1. Inception v3 training
 
 
 
